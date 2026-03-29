@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# 📄 DocuScan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**DocuScan** is a high-performance, privacy-focused document scanning and analysis web application. It allows users to scan documents using their camera, perform OCR (Optical Character Recognition), and extract structured data using AI—all while maintaining a sleek, modern interface.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 📸 **Smart Camera Capture**: Responsive camera interface with real-time feedback.
+- 🖼️ **Image Preprocessing**: High-performance image enhancement using the Canvas 2D API (grayscale, contrast, brightness).
+- 🔍 **OCR Extraction**: Robust text extraction using Tesseract.js.
+- 🤖 **AI Content Analysis**: Intelligent document classification and data extraction (Receipts, Invoices, ID Cards, Notes) powered by **Google Gemini AI**.
+- 🛠️ **Customizable Settings**: Flexible API key management and language support (English & Bengali).
+- 🌓 **Themes**: Premium Dark and Light mode support with a modern aesthetic.
+- 💾 **Local Storage**: Securely store scanned documents locally using IndexedDB (Dexie).
+- 📄 **PDF Generation**: Export scanned results directly to PDF.
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19 + TypeScript + Vite
+- **Styling**: Tailwind CSS v4
+- **State Management**: Zustand
+- **AI**: @google/genai (Gemini 2.0 Flash Lite)
+- **OCR**: Tesseract.js
+- **Database**: Dexie.js (IndexedDB)
+- **PDF**: jsPDF
 
-## Expanding the ESLint configuration
+## 📦 Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Node.js**: Version 18 or higher
+- **NPM**: Or Yarn/Pnpm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clone the repository:**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```bash
+   git clone <repository-url>
+   cd DocuScan
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Install dependencies:**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Create a `.env` file in the root directory and add your Google Gemini API Key.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Open `.env` and replace `YOUR_GEMINI_API_KEY_HERE` with your actual key from [Google AI Studio](https://aistudio.google.com/).
+
+4. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:5173`.
+
+## 🛠️ Commands
+
+- `npm run dev`: Start development server.
+- `npm run build`: Build for production.
+- `npm run preview`: Preview the production build locally.
+- `npm run lint`: Run ESLint to check code quality.
+
+## 📄 License
+
+This project is for academic/personal use. Please check the license for further details.
